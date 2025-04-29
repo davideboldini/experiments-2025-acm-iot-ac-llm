@@ -32,3 +32,40 @@ La procedura per impostare variabili d'ambiente varia in base al sistema operati
 ---
 
 L'applicazione cercherà prima le variabili d'ambiente e, se non trovate, leggerà il file `keys/ApiKeys.txt`. Fornire le chiavi tramite uno di questi metodi consentirà all'applicazione di accedere ai rispettivi servizi esterni.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## API Key Configuration
+
+To use external services (GEMINI, OPENROUTER, GITHUB) with this application, you need to provide the corresponding API keys or tokens. Two methods are available to configure these credentials:
+
+### Option 1: Using the `ApiKeys.txt` File
+
+You can place your API keys in a dedicated text file. Follow these steps:
+
+1.  Inside the `keys/` folder, create a text file named `ApiKeys.txt`.
+2.  Edit the `ApiKeys.txt` file and insert your keys in the following format:
+
+    ```txt
+    GEMINI_API_KEY: your_gemini_key
+    OPENROUTER_API_KEY: your_openrouter_key
+    GITHUB_TOKEN: your_github_token
+    ```
+
+    **Important Note:** It is not mandatory to include all three keys. Only include the lines for the services you actually intend to use.
+
+### Option 2: Using Environment Variables
+
+Alternatively, you can configure your API keys as environment variables at your operating system level. The application will look for keys with the same names specified for the `ApiKeys.txt` file.
+
+Ensure the following environment variables are set in your system:
+
+* `GEMINI_API_KEY`
+* `OPENROUTER_API_KEY`
+* `GITHUB_TOKEN`
+
+The procedure for setting environment variables varies depending on your operating system (e.g., using `export` on Linux/macOS or via system settings on Windows). Again, only set the variables for the services you wish to use.
+
+---
+
+The application will first check for environment variables and, if not found, will read the `keys/ApiKeys.txt` file. Providing keys through either of these methods will allow the application to access the respective external services.
