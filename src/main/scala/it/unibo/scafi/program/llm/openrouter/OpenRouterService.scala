@@ -4,7 +4,7 @@ import dev.langchain4j.model.chat.response.{ChatResponse, StreamingChatResponseH
 import dev.langchain4j.model.openai.OpenAiStreamingChatModel
 import it.unibo.scafi.program.llm.CodeGeneratorService
 import it.unibo.scafi.program.llm.openrouter.models.OpenRouterModels
-import it.unibo.scafi.program.utils.{PromptUtils, StringUtils}
+import it.unibo.scafi.program.utils.{KeyUtils, PromptUtils, StringUtils}
 
 import scala.concurrent.{ExecutionContext, Future, Promise}
 
@@ -18,9 +18,7 @@ class OpenRouterService(openRouterModel:OpenRouterModels) extends CodeGeneratorS
    */
 
   private val url = s"https://openrouter.ai/api/v1"
-  private val defaultApiKey: String = System.getenv("OPENROUTER_API_KEY") match
-    case null => throw new RuntimeException("OPENROUTER_API_KEY is not set")
-    case apiKey => apiKey
+  private val defaultApiKey: String = KeyUtils.openRouterKey
 
   private val model = OpenAiStreamingChatModel.builder().baseUrl(url).apiKey(defaultApiKey).modelName(openRouterModel.toString).build()
 

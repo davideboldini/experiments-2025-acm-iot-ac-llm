@@ -4,6 +4,7 @@ import io.circe.generic.auto.*
 import io.circe.parser.*
 import io.circe.syntax.*
 import it.unibo.scafi.*
+import it.unibo.scafi.program.utils.KeyUtils
 import requests.*
 import retry.Success
 import retry.Success.*
@@ -68,9 +69,7 @@ object GeminiService:
         case V1_5 => "1.5"
         case V2_0 => "2.0"
 
-  private lazy val defaultApiKey: String = System.getenv("GEMINI_API_KEY") match
-    case null => throw new RuntimeException("GEMINI_API_KEY is not set")
-    case apiKey => apiKey
+  private lazy val defaultApiKey: String = KeyUtils.geminiKey
 
   def flashExp(
       version: Version,

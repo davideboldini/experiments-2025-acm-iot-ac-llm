@@ -2,12 +2,11 @@ package it.unibo.scafi.program.llm.langchain.factory
 
 import it.unibo.scafi.program.llm.langchain.models.GitHubLangChainModel
 import it.unibo.scafi.program.llm.langchain.models.enums.GitHubModels
+import it.unibo.scafi.program.utils.KeyUtils
 
 object GitHubFactory extends LangChainFactory:
 
-  private lazy val defaultApiKey: String = System.getenv("GITHUB_API_KEY") match
-    case null => throw new RuntimeException("GITHUB_API_KEY is not set")
-    case apiKey => apiKey
+  private lazy val defaultApiKey: String = KeyUtils.githubToken
 
   private val models: List[GitHubModels] = 
     GitHubModels.values.toList

@@ -1,7 +1,5 @@
 package it.unibo.scafi
 
-import scala.concurrent.{Await, ExecutionContext, Future}
-import scala.concurrent.duration.DurationInt
 import io.circe.*
 import io.circe.generic.auto.*
 import io.circe.syntax.*
@@ -11,12 +9,11 @@ import it.unibo.scafi.test.{toStatisticsPerModel, toStatisticsPerTest}
 
 import java.nio.file.{Files, Path}
 import java.util.concurrent.Executors
+import scala.concurrent.duration.DurationInt
+import scala.concurrent.{Await, ExecutionContext, Future}
 import scala.io.StdIn.readLine
 
 @main def main(): Unit =
-  require(System.getenv("GEMINI_API_KEY") != null, "GEMINI_API_KEY environment variable must be set")
-  require(System.getenv("OPENROUTER_API_KEY") != null, "OPENROUTER_API_KEY environment variable must be set")
-  require(System.getenv("GITHUB_TOKEN") != null, "GITHUB_TOKEN environment variable must be set")
 
   val executor = Executors.newFixedThreadPool(1)
   given ExecutionContext = ExecutionContext.fromExecutor(executor)
