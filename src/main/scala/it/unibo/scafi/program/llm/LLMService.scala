@@ -6,9 +6,9 @@ import it.unibo.scafi.program.llm.langchain.models.LangChainModel
 import it.unibo.scafi.program.llm.openrouter.factory.OpenRouterFactory
 import it.unibo.scafi.program.llm.openrouter.models.OpenRouterModels
 
-class LLMService (val service: String, val provider:String, val baseUrl: Option[String] = None):
+class LLMService (val subMethod: String, val provider:String, val baseUrl: Option[String] = None):
 
-  def build(): List[CodeGeneratorService] = (service, provider) match
+  def build(): List[CodeGeneratorService] = (subMethod, provider) match
     case ("LANGCHAIN", _) => buildLangChainLLM()
     case ("OPENROUTER", _) => buildOpenRouterLLM()
 
@@ -18,7 +18,7 @@ class LLMService (val service: String, val provider:String, val baseUrl: Option[
   private def buildOpenRouterLLM(): List[CodeGeneratorService] =
     OpenRouterFactory.apply()
   
-  def getLangChainModels(): List[LangChainModel] = provider match 
+  def getLangChainModels(): List[LangChainModel] = provider match
     case "GEMINI" => GeminiFactory.apply()
     case "GITHUB" => GitHubFactory.apply()
     case "LOCALAI" => LocalAIFactory.apply(baseUrl)

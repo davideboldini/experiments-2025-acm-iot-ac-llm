@@ -12,6 +12,6 @@ object GitHubFactory extends LangChainFactory:
   private val models: List[GitHubModels] = 
     GitHubModels.values.toList
   
-  override def apply(baseUrl: Option[String] = None): List[GitHubLangChainModel] = 
+  override def apply(baseUrl: Option[String] = None): List[GitHubLangChainModel] =
     models.map(model => GitHubLangChainModel(defaultApiKey, model.toString))
 

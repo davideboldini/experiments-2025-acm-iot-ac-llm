@@ -1,6 +1,6 @@
 package it.unibo.scafi.program.llm.langchain.factory
 
-import it.unibo.scafi.program.llm.langchain.models.{GeminiLangChainModel, LangChainModel}
+import it.unibo.scafi.program.llm.langchain.models.{GeminiLangChainModel}
 import it.unibo.scafi.program.llm.{GeminiService}
 
 object GeminiFactory extends LangChainFactory{
@@ -11,6 +11,6 @@ object GeminiFactory extends LangChainFactory{
     GeminiService.proExp(GeminiService.Version.V2_0),
   )
 
-  override def apply(baseUrl: Option[String] = None): List[LangChainModel] =
+  override def apply(baseUrl: Option[String] = None): List[GeminiLangChainModel] =
     loaders.map(loader => GeminiLangChainModel(loader.apiKey, loader.model))
 }

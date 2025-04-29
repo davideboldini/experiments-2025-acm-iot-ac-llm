@@ -8,7 +8,7 @@ object LocalAIFactory extends LangChainFactory:
   private val models: List[OllamaModels] =
     OllamaModels.values.toList
     
-  override def apply(baseUrl: Option[String]): List[LocalAiLangChainModel] = 
-    models.map(model => LocalAiLangChainModel(baseUrl.get, model.toString))
+  override def apply(baseUrl: Option[String]): List[LocalAiLangChainModel] =
+    models.map(model => LocalAiLangChainModel(model.toString, baseUrl.get))
   
 

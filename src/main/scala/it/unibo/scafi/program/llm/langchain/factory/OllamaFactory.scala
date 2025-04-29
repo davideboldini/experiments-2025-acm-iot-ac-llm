@@ -9,4 +9,4 @@ object OllamaFactory extends LangChainFactory:
     OllamaModels.values.toList
     
   override def apply(baseUrl: Option[String]): List[OllamaLangChainModel] =
-    models.map(model => OllamaLangChainModel(baseUrl.get, model.toString))
+    models.map(model => OllamaLangChainModel(model.toString, baseUrl.get))

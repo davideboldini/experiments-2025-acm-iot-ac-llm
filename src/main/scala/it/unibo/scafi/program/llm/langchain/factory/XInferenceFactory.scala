@@ -9,4 +9,4 @@ object XInferenceFactory extends LangChainFactory:
     XinferenceModels.values.toList
 
   override def apply(baseUrl: Option[String]): List[XinferenceLangChainModel] =
-    models.map(model => XinferenceLangChainModel(baseUrl.get, model.toString))
+    models.map(model => XinferenceLangChainModel(model.toString, baseUrl.get))

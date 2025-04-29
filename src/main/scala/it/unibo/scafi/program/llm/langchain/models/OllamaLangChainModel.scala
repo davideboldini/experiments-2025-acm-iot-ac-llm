@@ -13,6 +13,8 @@ class OllamaLangChainModel(modelName: String, val baseUrl: String) extends LangC
    */
 
   override def build(): StreamingChatLanguageModel =
+    //println(s"Ollama model: ${modelName}")
+    //println(s"Ollama baseUrl: ${baseUrl}")
     OllamaStreamingChatModel.builder()
       .baseUrl(baseUrl)
       .temperature(0.5)
