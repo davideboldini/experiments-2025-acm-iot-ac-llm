@@ -3,7 +3,7 @@ package it.unibo.scafi.program.llm.ollama
 import io.github.ollama4j.OllamaAPI
 import io.github.ollama4j.utils.OptionsBuilder
 import it.unibo.scafi.program.llm.CodeGeneratorService
-import it.unibo.scafi.program.llm.langchain.models.modelsEnum.OllamaModels
+import it.unibo.scafi.program.llm.langchain.models.enums.OllamaModels
 import it.unibo.scafi.program.utils.StringUtils
 
 import scala.concurrent.{ExecutionContext, Future}

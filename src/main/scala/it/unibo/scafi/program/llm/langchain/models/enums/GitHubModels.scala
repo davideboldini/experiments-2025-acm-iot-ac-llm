@@ -1,4 +1,4 @@
-package it.unibo.scafi.program.llm.langchain.models.modelsEnum
+package it.unibo.scafi.program.llm.langchain.models.enums
 
 enum GitHubModels:
   case DEEPSEEK_V3

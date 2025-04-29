@@ -3,6 +3,7 @@ package it.unibo.scafi.program.llm.openrouter
 import dev.langchain4j.model.chat.response.{ChatResponse, StreamingChatResponseHandler}
 import dev.langchain4j.model.openai.OpenAiStreamingChatModel
 import it.unibo.scafi.program.llm.CodeGeneratorService
+import it.unibo.scafi.program.llm.openrouter.models.OpenRouterModels
 import it.unibo.scafi.program.utils.{PromptUtils, StringUtils}
 
 import scala.concurrent.{ExecutionContext, Future, Promise}

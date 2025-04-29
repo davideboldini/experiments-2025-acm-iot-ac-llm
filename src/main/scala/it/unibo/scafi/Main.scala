@@ -27,14 +27,14 @@ import scala.io.StdIn.readLine
 
   val subMethod = method match
     case "LLM" => UserUtils.getUserChoice("Choose subMode (API REST/LangChain/OpenRouter): ", Set("API REST", "LANGCHAIN", "OPENROUTER"))
-    case "RAG" => UserUtils.getUserChoice("Choose subMode (Gemini/Ollama): ", Set("GEMINI", "OLLAMA"))
+    case "RAG" => "LANGCHAIN"
 
   val langChainType = subMethod match
     case "LANGCHAIN" => UserUtils.getUserChoice("Choose LangChain method (Ollama/Gemini/GitHub/Xinference): ", Set("OLLAMA", "GEMINI", "GITHUB", "XINFERENCE"))
     case _ => ""
 
   val ngrokAddress = (langChainType, subMethod) match
-    case ("OLLAMA", _) | ("XINFERENCE", _) | (_, "OLLAMA") => readLine("Insert ngrok/localhost Ollama/Xinference address: ").trim
+    case ("OLLAMA", _) | ("XINFERENCE", _) => readLine("Insert ngrok/localhost Ollama/Xinference address: ").trim
     case _ => ""
 
   println(s"Method selected: $method")
