@@ -1,4 +1,4 @@
-package it.unibo.scafi.program.RAG
+package it.unibo.scafi.program.rag
 
 import dev.langchain4j.data.document.Document
 import dev.langchain4j.data.document.DocumentParser

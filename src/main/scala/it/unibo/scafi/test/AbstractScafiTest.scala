@@ -3,9 +3,9 @@ package it.unibo.scafi.test
 import io.circe.generic.auto.*
 import io.circe.parser.*
 import it.unibo.scafi.Prompts
-import it.unibo.scafi.program.RAG.RAG
+import it.unibo.scafi.program.rag.RAG
 import it.unibo.scafi.program.llm.langchain.models.LangChainModel
-import it.unibo.scafi.program.llm.{CodeGeneratorService, LLMService}
+import it.unibo.scafi.program.llm.{CodeGeneratorService, LLMBuilder}
 import it.unibo.scafi.test.FunctionalTestIncarnation.Network
 import it.unibo.scafi.test.ScafiTestResult.{CompilationFailed, GenericFailure}
 import it.unibo.scafi.test.ScafiTestUtils.{buildProgram, executeFromString}
@@ -106,7 +106,7 @@ abstract class AbstractScafiProgramTest(
                             ngrokAddress: String
                           ): ExecutionContext ?=> Seq[Future[SingleTestResult]] =
 
-    val llmService = LLMService(subMethod, langChainType, Option.apply(ngrokAddress))
+    val llmService = LLMBuilder(subMethod, langChainType, Option.apply(ngrokAddress))
 
     val models = method match
       case "LLM" => llmService.build()

@@ -6,7 +6,7 @@ import it.unibo.scafi.program.llm.langchain.models.LangChainModel
 import it.unibo.scafi.program.llm.openrouter.factory.OpenRouterFactory
 import it.unibo.scafi.program.llm.openrouter.models.OpenRouterModels
 
-class LLMService (val subMethod: String, val provider:String, val baseUrl: Option[String] = None):
+class LLMBuilder(val subMethod: String, val provider:String, val baseUrl: Option[String] = None):
 
   def build(): List[CodeGeneratorService] = (subMethod, provider) match
     case ("LANGCHAIN", _) => buildLangChainLLM()

@@ -1,4 +1,4 @@
-package it.unibo.scafi.program.RAG
+package it.unibo.scafi.program.rag
 
 import dev.langchain4j.data.document.{Document, DocumentParser}
 import dev.langchain4j.data.embedding.Embedding

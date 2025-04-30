@@ -36,7 +36,7 @@ object KeyUtils:
   def githubToken: String = requireKey(GITHUB_TOKEN)
 
   def get(apiName: String): Option[String] = fromEnvOrFile(apiName)
-  
+
 end KeyUtils
 
 enum Keys:

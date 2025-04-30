@@ -1,4 +1,4 @@
-package it.unibo.scafi.program.RAG
+package it.unibo.scafi.program.rag
 
 import dev.langchain4j.service.{TokenStream, UserMessage}
 
