@@ -1,14 +1,13 @@
 package it.unibo.scafi.program.llm.openrouter
 
 import dev.langchain4j.model.chat.response.{ChatResponse, StreamingChatResponseHandler}
-import dev.langchain4j.model.openai.OpenAiStreamingChatModel
 import it.unibo.scafi.program.llm.CodeGeneratorService
-import it.unibo.scafi.program.llm.openrouter.models.OpenRouterModels
-import it.unibo.scafi.program.utils.{KeyUtils, PromptUtils, StringUtils}
+import it.unibo.scafi.program.llm.openrouter.models.{OpenRouterModel}
+import it.unibo.scafi.program.utils.{PromptUtils, StringUtils}
 
 import scala.concurrent.{ExecutionContext, Future, Promise}
 
-class OpenRouterService(openRouterModel:OpenRouterModels) extends CodeGeneratorService:
+class OpenRouterService(openRouterModel: OpenRouterModel) extends CodeGeneratorService:
   /*
   DOC OPENROUTER: https://openrouter.ai/
   LIMITS:
@@ -16,11 +15,8 @@ class OpenRouterService(openRouterModel:OpenRouterModels) extends CodeGeneratorS
     200 requests/day
     https://github.com/cheahjs/free-llm-api-resources
    */
-
-  private val url = s"https://openrouter.ai/api/v1"
-  private val defaultApiKey: String = KeyUtils.openRouterKey
-
-  private val model = OpenAiStreamingChatModel.builder().baseUrl(url).apiKey(defaultApiKey).modelName(openRouterModel.toString).build()
+  
+  private val model = openRouterModel.build()
 
   override def generateRaw(localKnowledge: String, preamble: String, prompt: String): ExecutionContext ?=> Future[String] =
     val promise = Promise[String]()

@@ -3,7 +3,7 @@ package it.unibo.scafi.program.llm.langchain.models
 import dev.langchain4j.model.chat.StreamingChatLanguageModel
 import dev.langchain4j.model.github.GitHubModelsStreamingChatModel
 
-class GitHubLangChainModel(gitHubToken: String, modelName: String) extends LangChainModel(gitHubToken, modelName):
+class GitHubLangChainModel(gitHubToken: String, modelName: String) extends LangChainModel(modelName):
 
   /*
     DOC LANGCHAIN4J: https://docs.langchain4j.dev/integrations/language-models/github-models
@@ -17,5 +17,3 @@ class GitHubLangChainModel(gitHubToken: String, modelName: String) extends LangC
       .logRequestsAndResponses(true)
       .build()
 
-  override def toString: String =
-    s"$modelName"

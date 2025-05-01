@@ -4,7 +4,7 @@ import dev.langchain4j.model.chat.StreamingChatLanguageModel
 import dev.langchain4j.model.localai.LocalAiStreamingChatModel
 import java.time
 
-class LocalAiLangChainModel(modelName: String, val baseUrl: String) extends LangChainModel("", modelName):
+class LocalAiLangChainModel(modelName: String, val baseUrl: String) extends LangChainModel(modelName):
 
   /*
     DOC LANGCHAIN4J: https://docs.langchain4j.dev/integrations/language-models/local-ai
@@ -19,6 +19,4 @@ class LocalAiLangChainModel(modelName: String, val baseUrl: String) extends Lang
       .timeout(time.Duration.ofMinutes(10))
       .build();
 
-  override def toString: String =
-    s"${modelName}"
 

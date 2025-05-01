@@ -5,7 +5,7 @@ import dev.langchain4j.model.chat.StreamingChatLanguageModel
 
 import java.time
 
-class XinferenceLangChainModel(modelName: String, val baseUrl: String) extends LangChainModel("", modelName):
+class XinferenceLangChainModel(modelName: String, val baseUrl: String) extends LangChainModel(modelName):
 
   /*
     DOC LANGCHAIN4J: https://docs.langchain4j.dev/integrations/language-models/ollama
@@ -20,6 +20,4 @@ class XinferenceLangChainModel(modelName: String, val baseUrl: String) extends L
       .timeout(time.Duration.ofMinutes(3))
       .build();
 
-  override def toString: String =
-    s"${modelName}"
 

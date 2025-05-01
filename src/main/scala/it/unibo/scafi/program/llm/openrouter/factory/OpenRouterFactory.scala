@@ -1,13 +1,11 @@
 package it.unibo.scafi.program.llm.openrouter.factory
 
-import it.unibo.scafi.program.llm.CodeGeneratorService
-import it.unibo.scafi.program.llm.openrouter.OpenRouterService
-import it.unibo.scafi.program.llm.openrouter.models.OpenRouterModels
+import it.unibo.scafi.program.llm.openrouter.models.{OpenRouterEnums, OpenRouterModel}
 
 object OpenRouterFactory:
   
-  val models: List[OpenRouterModels] = OpenRouterModels.values.toList
+  val models: List[OpenRouterEnums] = OpenRouterEnums.values.toList
   
-  def apply(): List[CodeGeneratorService] = 
-    models.map(model => OpenRouterService(model))
+  def apply(): List[OpenRouterModel] =
+    models.map(model => OpenRouterModel(model.toString))
 

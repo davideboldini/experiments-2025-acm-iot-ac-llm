@@ -5,7 +5,7 @@ import dev.langchain4j.model.googleai.GoogleAiGeminiStreamingChatModel
 
 import java.time
 
-class GeminiLangChainModel(apiKey: String, modelName: String) extends LangChainModel(apiKey, modelName):
+class GeminiLangChainModel(apiKey: String, modelName: String) extends LangChainModel(modelName):
 
   /*
     DOC LANGCHAIN4J: https://docs.langchain4j.dev/integrations/language-models/google-ai-gemini
@@ -20,5 +20,3 @@ class GeminiLangChainModel(apiKey: String, modelName: String) extends LangChainM
       .modelName(modelName)
       .build()
 
-  override def toString: String =
-    s"${modelName}"

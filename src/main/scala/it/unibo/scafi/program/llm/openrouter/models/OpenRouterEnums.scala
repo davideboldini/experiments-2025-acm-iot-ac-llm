@@ -1,6 +1,6 @@
 package it.unibo.scafi.program.llm.openrouter.models
 
-enum OpenRouterModels:
+enum OpenRouterEnums:
   //case GEMMA3_27B
   //case GEMMA3_12B
   //case GEMMA3_4B
