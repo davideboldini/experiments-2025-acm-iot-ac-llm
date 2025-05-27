@@ -4,7 +4,8 @@ import it.unibo.scafi.program.llm.langchain.LangChainService
 import it.unibo.scafi.program.llm.langchain.factory.{GeminiFactory, GitHubFactory, LocalAIFactory, OllamaFactory, XInferenceFactory}
 import it.unibo.scafi.program.llm.langchain.models.LangChainModel
 import it.unibo.scafi.program.llm.openrouter.OpenRouterService
-import it.unibo.scafi.program.llm.openrouter.models.{OpenRouterEnums, OpenRouterModel}
+import it.unibo.scafi.program.llm.openrouter.factory.OpenRouterFactory
+import it.unibo.scafi.program.llm.openrouter.models.{OpenRouterModel}
 
 class LLMBuilder(val subMethod: String, val provider:String, val baseUrl: Option[String] = None):
 
@@ -26,7 +27,7 @@ class LLMBuilder(val subMethod: String, val provider:String, val baseUrl: Option
     case "XINFERENCE" => XInferenceFactory.apply(baseUrl)
     
   private def getOpenRouterModels(): List[OpenRouterModel] =
-    OpenRouterEnums.values.toList.map(model => OpenRouterModel(model.toString))
+    OpenRouterFactory.apply()
   
 
 
